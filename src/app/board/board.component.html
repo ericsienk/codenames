@@ -1,0 +1,7 @@
+<div class="board">
+    <div class="card-row" *ngFor="let row of grid">
+        <div class="card-container" *ngFor="let word of row">
+            <app-card [word]="word"></app-card>
+        </div>
+    </div>
+</div>

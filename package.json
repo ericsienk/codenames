@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "push": "ng build --prod --base-href https://ericsienk.github.io/codenames/ && ngh --dir dist/codenames -no-silent"
   },
   "private": true,
   "dependencies": {

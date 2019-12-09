@@ -1,0 +1,16 @@
+.card-row {
+    display: inline-block;
+    width: 100%;
+    height: calc(100vw / 5 / 2.5);
+    margin-bottom: 1vw;
+}
+
+.card-container {
+    display: inline-block;
+    width: calc(100% / 5);
+    height: 100%;
+}
+
+.board {
+    padding: 18px;
+}
