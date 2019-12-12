@@ -1,12 +1,137 @@
-.word {
-    padding: 1vw;
+.wrapper {
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     background: white;
     font-size: 2vw;
     position: relative;
     margin: auto;
     border-radius: 3px;
     height: 100%;
+    max-height: calc(100vw / 5);
     width: 85%;
     text-transform: capitalize;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    user-select: none;
 }
+
+.cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+    z-index: 1;
+    text-align: center;
+}
+
+.cover img {
+    height: 100%;
+    max-height: calc(100vw / 5 / 1.5);
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    -webkit-animation: .65s linear both rotate-scale-up;
+    animation: .65s linear both rotate-scale-up;
+}
+
+.restrict-overflow {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: inset 1px 1px 0 8px #0000008c;
+}
+
+.backdrop {
+    position: relative;
+    height: 154%;
+    width: 114%;
+    top: -4px;
+    left: -4px;
+    filter: blur(3px);
+    animation: scale-down 0.65s linear both;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform: translate3d(0,0,0);
+    transform: translateZ(0);
+}
+
+.word {
+    padding: 1vw;
+    height: 100%;
+    transition: all .35s;
+    cursor: pointer;
+}
+
+.wrapper.Blue {
+    box-shadow: inset 0px 0px 13px -4px #276dc8;
+    background: #d0e0f3
+}
+
+.wrapper.Red {
+    box-shadow: inset 0px 0px 13px -4px #c82727;
+    background: #ffcece;
+}
+
+.wrapper.Bystander {
+    box-shadow: inset 0px 0px 13px -4px #df8800;
+    background: #f8e5c8;
+}
+
+.wrapper.Assassin {
+    box-shadow: inset 0px 0px 13px -4px #686868;
+    background: #d9d9d9;
+}
+
+.upsidedown {
+    transform: scale(-1);
+    color: #cdaf80;
+    font-style: italic;
+    border-bottom: solid;
+    font-size: 1vw;
+    letter-spacing: 4px;
+}
+
+.wrapper.Blue .upsidedown {
+    color: #276dc8;
+}
+
+.wrapper.Red .upsidedown {
+    color: #c82727;
+}
+
+.wrapper.Bystander .upsidedown {
+    color: #df8800;
+}
+
+.wrapper.Assassin .upsidedown {
+    color: #686868;
+}
+
+@keyframes rotate-scale-up {
+    0% {
+        transform: scale(1) rotateZ(0);
+        z-index: 999;
+    }
+    50% {
+        transform: scale(1.5) rotateZ(180deg);
+    }
+    100% {
+        transform: scale(1) rotateZ(360deg);
+    }
+  }
+
+  @keyframes scale-down {
+      from {
+        transform: scale(1.5);
+      }
+
+      to {
+        transform: scale(1)
+      }
+  }

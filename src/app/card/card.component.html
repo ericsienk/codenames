@@ -1,3 +1,13 @@
-<div class="word">
-    {{word}}
+<!-- <div class="wrapper" [ngClass]="card.type"> -->
+<div class="wrapper">
+    <div [ngClass]="card.type" class="cover" *ngIf="card.isRevealed">
+        <img [src]="imgUrl">
+        <div class="restrict-overflow">
+            <div class="backdrop" [ngStyle]="{'background-image': 'url(' + imgUrl +')'}"></div>
+        </div>
+    </div>
+    <div class="word">
+        {{card.word}}
+        <div class="upsidedown">{{card.word}}</div>
+    </div>
 </div>

@@ -1,7 +1,7 @@
-<div class="board">
-    <div class="card-row" *ngFor="let row of grid">
-        <div class="card-container" *ngFor="let word of row">
-            <app-card [word]="word"></app-card>
+<div class="board" *ngIf="grid">
+    <div class="card-row" *ngFor="let row of grid.cards">
+        <div class="card-container" *ngFor="let card of row">
+            <app-card (dblclick)="reveal(card)" [card]="card"></app-card>
         </div>
     </div>
 </div>
