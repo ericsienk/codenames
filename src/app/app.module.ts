@@ -8,14 +8,20 @@ import { BoardComponent } from './board/board.component';
 import { GridService } from './services/grid.service';
 import { RandoUtilService } from './services/rando-util.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ActionBarComponent } from './board/action-bar/action-bar.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
+import { MenuComponent } from './menu/menu.component';
+import { AnswersComponent } from './answers/answers.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     BoardComponent,
-    ActionBarComponent
+    ActionBarComponent,
+    MenuComponent,
+    AnswersComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

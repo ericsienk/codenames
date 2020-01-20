@@ -1,7 +1,7 @@
 .wrapper {
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     background: white;
-    font-size: 2vw;
+    font-size: 1.7vw;
     position: relative;
     margin: auto;
     border-radius: 3px;
@@ -55,6 +55,7 @@
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     -webkit-animation: .65s linear both rotate-scale-up;
     animation: .65s linear both rotate-scale-up;
+    user-select: none;
 }
 
 .restrict-overflow {
@@ -90,6 +91,7 @@
     height: 100%;
     transition: all .35s;
     cursor: pointer;
+    user-select: none;
 }
 
 .Blue {
@@ -175,6 +177,7 @@
     border-bottom: solid;
     font-size: 1vw;
     letter-spacing: 4px;
+    user-select: none;
 }
 
 @keyframes rotate-scale-up {

@@ -1,15 +1,7 @@
-<div *ngIf="grid">
-    <div class="board">
-        <div class="card-row" *ngFor="let row of grid.cards">
-            <div class="card-container" *ngFor="let card of row">
-                <app-card (dblclick)="reveal(card)" [card]="card"></app-card>
-            </div>
+<div class="board">
+    <div class="card-row" *ngFor="let row of grid.cards">
+        <div class="card-container" *ngFor="let card of row">
+            <app-card (dblclick)="cardSelected.emit(card)" [card]="card"></app-card>
         </div>
     </div>
-    <app-action-bar [grid]="grid" 
-                    [actionStack]="actionStack"
-                    [(type)]="overrideType" 
-                    (flow)="flow($event)"
-                    class="action-bar">
-    </app-action-bar>
 </div>

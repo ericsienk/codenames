@@ -1,0 +1,9 @@
+<div *ngIf="grid">
+    <app-board [grid]="grid" (cardSelected)="reveal($event)"></app-board>
+    <app-action-bar [grid]="grid" 
+                    [actionStack]="actionStack"
+                    [(type)]="overrideType" 
+                    (flow)="flow($event)"
+                    class="action-bar">
+    </app-action-bar>
+</div>

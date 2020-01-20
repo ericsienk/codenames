@@ -1,3 +1,11 @@
+.action-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
 .bar-container {
     height: 15vh;
     width: 100%;
@@ -18,7 +26,7 @@
     transition: all .35s;
     display: inline-block;
     margin: 0 9px;
-    border: 6px solid #cdaf8069;
+    border: 6px solid #cec0a9;
     border-radius: 4px;
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -35,6 +43,7 @@
 
 .type-img {
     height: 15vh;
+    max-height: calc(100vw / 8);
 }
 
 .type-count {
@@ -42,14 +51,17 @@
     right: 0;
     width: 5vh;
     height: 5vh;
-    background: #ffffff94;
+    background: #ffffff54;
     border: 1px solid black;
     color: black;
     font-size: 4vh;
     border-bottom-left-radius: 6px;
+    user-select: none;
 }
 
 .action-left, .action-right {
     display: inline-block;
     width: 24px;
+    cursor: pointer;
+    user-select: none;
 }
