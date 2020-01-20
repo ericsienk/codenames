@@ -1,9 +1,9 @@
 <!-- <div class="wrapper" [ngClass]="card.type"> -->
-<div class="wrapper">
-    <div [ngClass]="card.type" class="cover" *ngIf="card.isRevealed">
+<div class="wrapper {{card.type}}" [ngClass]="{revealed: card.isRevealed, covered: !card.isRevealed}">
+    <div class="cover" *ngIf="card.isRevealed">
         <img [src]="imgUrl">
         <div class="restrict-overflow">
-            <div class="backdrop" [ngStyle]="{'background-image': 'url(' + imgUrl +')'}"></div>
+            <div class="backdrop" [ngStyle]="{'background-image': backgroundUrl}"></div>
         </div>
     </div>
     <div class="word">

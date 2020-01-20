@@ -12,13 +12,34 @@
     user-select: none;
 }
 
+.revealed {
+    .word {
+        color: transparent;
+    }
+
+    .upsidedown {
+        color: transparent;
+    }
+
+    .cover {
+        animation: .65s linear both shrink-width;
+    }
+}
+
+@keyframes shrink-width {
+    from { widows: 100%;}
+    to {width: 69%};
+}
+
 .cover {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: white;
     z-index: 1;
     text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
 
 .cover img {
@@ -43,12 +64,7 @@
     box-shadow: inset 1px 1px 0 8px #0000008c;
 }
 
-.backdrop {
-    position: relative;
-    height: 154%;
-    width: 114%;
-    top: -4px;
-    left: -4px;
+.blur {
     filter: blur(3px);
     animation: scale-down 0.65s linear both;
     -webkit-backface-visibility: hidden;
@@ -61,6 +77,14 @@
     transform: translateZ(0);
 }
 
+.backdrop {
+    position: relative;
+    height: 154%;
+    width: 114%;
+    top: -4px;
+    left: -4px;
+}
+
 .word {
     padding: 1vw;
     height: 100%;
@@ -68,24 +92,80 @@
     cursor: pointer;
 }
 
-.wrapper.Blue {
-    box-shadow: inset 0px 0px 13px -4px #276dc8;
-    background: #d0e0f3
+.Blue {
+    &.wrapper.revealed.auto {
+        box-shadow: inset 0px 0px 13px -4px #276dc8;
+        background: #d0e0f3;
+
+        .upsidedown {
+            color: #276dc8;
+        }
+    }
+
+    &.wrapper.revealed {
+        background: #304c73;
+    }
+
+    .backdrop {
+        background: #253b5b;
+    }
 }
 
-.wrapper.Red {
-    box-shadow: inset 0px 0px 13px -4px #c82727;
-    background: #ffcece;
+.Red {
+    &.wrapper.revealed.auto {
+        box-shadow: inset 0px 0px 13px -4px #c82727;
+        background: #ffcece; 
+
+        .upsidedown {
+            color: #c82727;
+        }
+    }
+
+    &.wrapper.revealed {
+        background: #ae2515;
+    }
+
+    .backdrop {
+        background: #a40d05;
+    }
 }
 
-.wrapper.Bystander {
-    box-shadow: inset 0px 0px 13px -4px #df8800;
-    background: #f8e5c8;
+.Bystander {
+    &.wrapper.revealed.auto {
+        box-shadow: inset 0px 0px 13px -4px #df8800;
+        background: #f8e5c8;
+
+        .upsidedown {
+            color: #df8800;
+        }
+    }
+    
+    &.wrapper.revealed {
+        background: #c4beb0;
+    }
+
+    .backdrop {
+        background: #b8b0a3;
+    }
 }
 
-.wrapper.Assassin {
-    box-shadow: inset 0px 0px 13px -4px #686868;
-    background: #d9d9d9;
+.Assassin {
+    &.wrapper.revealed.auto {
+        box-shadow: inset 0px 0px 13px -4px #686868;
+        background: #d9d9d9;
+
+        .upsidedown {
+            color: #686868;
+        }
+    }
+    
+    &.wrapper.revealed {
+        background: #41413f;
+    }
+
+    .backdrop {
+        background: #353533;
+    }
 }
 
 .upsidedown {
@@ -95,22 +175,6 @@
     border-bottom: solid;
     font-size: 1vw;
     letter-spacing: 4px;
-}
-
-.wrapper.Blue .upsidedown {
-    color: #276dc8;
-}
-
-.wrapper.Red .upsidedown {
-    color: #c82727;
-}
-
-.wrapper.Bystander .upsidedown {
-    color: #df8800;
-}
-
-.wrapper.Assassin .upsidedown {
-    color: #686868;
 }
 
 @keyframes rotate-scale-up {

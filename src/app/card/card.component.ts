@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, KeyValueDiffers } from '@angular/core';
 import { ICard } from '../domain/card.interface';
 import { RandoUtilService } from '../services/rando-util.service';
 import { CardType } from '../domain/card-type.enum';
@@ -8,15 +8,17 @@ import { CardType } from '../domain/card-type.enum';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit, OnChanges {
+export class CardComponent implements OnInit {
     @Input() card: ICard;
+    public cachedType: CardType;
     public imgUrl: string;
-    public backgroundImage: string;
-    constructor(private rando: RandoUtilService) { }
+    public backgroundUrl: string;
+    cardDiffer: any;
+    constructor(private rando: RandoUtilService, private differs: KeyValueDiffers) { }
 
-    ngOnInit() { 
-
-    }
+    ngOnInit() {
+        this.cardDiffer = this.differs.find(this.card).create();
+     }
 
     getRandomImageNumber() {
         let max = 1;
@@ -28,9 +30,12 @@ export class CardComponent implements OnInit, OnChanges {
 
         return this.rando.range(1, max);
     }
-    
-    ngOnChanges(changes: SimpleChanges): void {
-        this.imgUrl = `assets/cards/${this.card.type}_${this.getRandomImageNumber()}.jpg`;
-        this.backgroundImage = 'url(' + this.imgUrl + ')';
+
+    ngDoCheck(): void {
+        const changes = this.cardDiffer.diff(this.card);
+        if (changes) {
+            this.imgUrl = `assets/cards/${this.card.type}_${this.getRandomImageNumber()}.jpg`;
+            // this.backgroundUrl = 'url(' + this.imgUrl + ')';
+        }
     }
 }

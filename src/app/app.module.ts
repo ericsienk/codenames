@@ -8,16 +8,18 @@ import { BoardComponent } from './board/board.component';
 import { GridService } from './services/grid.service';
 import { RandoUtilService } from './services/rando-util.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ActionBarComponent } from './board/action-bar/action-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    BoardComponent
+    BoardComponent,
+    ActionBarComponent
   ],
   imports: [
     BrowserModule,
-      AppRoutingModule,
+    AppRoutingModule,
     HttpClientModule
   ],
   providers: [GridService, RandoUtilService],
