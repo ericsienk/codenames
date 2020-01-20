@@ -1,24 +1,36 @@
 .wrapper {
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     background: white;
-    font-size: 1.7vw;
+    font-size: 2vw;
     position: relative;
     margin: auto;
-    border-radius: 3px;
+    //border-radius: 3px;
+    min-height: 12vh;
     height: 100%;
-    max-height: calc(100vw / 5);
-    width: 85%;
+    max-height: 20vw;
+    width: 94%;
     text-transform: capitalize;
-    user-select: none;
 }
 
+@media screen and (max-height: 400px) {
+  .upsidedown {
+        display: none;
+    }
+
+    .word .main {
+        padding-bottom: 2px;
+        border-bottom: #CDAF7F solid;
+    }
+}
+
+
 .revealed {
-    .word {
+    .word, .upsidedown {
         color: transparent;
     }
 
-    .upsidedown {
-        color: transparent;
+    .word .main {
+        border-bottom: none;
     }
 
     .cover {
@@ -44,7 +56,8 @@
 
 .cover img {
     height: 100%;
-    max-height: calc(100vw / 5 / 1.5);
+    max-height: calc(100vw / 6 / 1.5);
+    max-width: 100%;
     position: absolute;
     z-index: 2;
     left: 0;
@@ -55,7 +68,6 @@
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     -webkit-animation: .65s linear both rotate-scale-up;
     animation: .65s linear both rotate-scale-up;
-    user-select: none;
 }
 
 .restrict-overflow {
@@ -91,7 +103,6 @@
     height: 100%;
     transition: all .35s;
     cursor: pointer;
-    user-select: none;
 }
 
 .Blue {
@@ -177,7 +188,6 @@
     border-bottom: solid;
     font-size: 1vw;
     letter-spacing: 4px;
-    user-select: none;
 }
 
 @keyframes rotate-scale-up {
@@ -201,4 +211,12 @@
       to {
         transform: scale(1)
       }
+  }
+
+  .no-select, .upsidedown, .word, .cover img, .wrapper {
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
   }

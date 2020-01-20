@@ -1,9 +1,16 @@
+@keyframes slideUp {
+    from { transform: translateY(15vh)}
+    to { transform: translateY(0)}
+}
+
 .action-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     overflow: hidden;
+    z-index: 3;
+    animation: .35s slideUp
 }
 
 .bar-container {
@@ -56,12 +63,19 @@
     color: black;
     font-size: 4vh;
     border-bottom-left-radius: 6px;
-    user-select: none;
 }
 
 .action-left, .action-right {
     display: inline-block;
     width: 24px;
     cursor: pointer;
-    user-select: none;
+    color: white;
+}
+
+.no-select, .action-left, .action-right, .type-count {
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
