@@ -16,3 +16,9 @@
     display: flex;
     flex-flow: row wrap;
 }
+
+@media screen and (max-height: 400px) {
+    .card-row {
+        margin-bottom: 0;
+    }    
+}

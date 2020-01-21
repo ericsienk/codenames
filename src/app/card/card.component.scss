@@ -1,7 +1,7 @@
 .wrapper {
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     background: white;
-    font-size: 2vw;
+    font-size: 1.7vw;
     position: relative;
     margin: auto;
     //border-radius: 3px;
@@ -11,18 +11,6 @@
     width: 94%;
     text-transform: capitalize;
 }
-
-@media screen and (max-height: 400px) {
-  .upsidedown {
-        display: none;
-    }
-
-    .word .main {
-        padding-bottom: 2px;
-        border-bottom: #CDAF7F solid;
-    }
-}
-
 
 .revealed {
     .word, .upsidedown {
@@ -219,4 +207,14 @@
     -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
     -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  }
+
+  @media screen and (max-height: 400px) {
+    .upsidedown {
+          display: none;
+      }
+  
+      .cover img {
+          box-shadow: none;
+      }
   }

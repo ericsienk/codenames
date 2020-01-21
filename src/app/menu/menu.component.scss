@@ -1,0 +1,62 @@
+.menu {
+    position: fixed;
+    background: white;
+    left: 0;
+    right: 0;
+    top: 9vh;
+    margin: auto;
+    max-width: 90vw;
+    width: 524px;
+    z-index: 6;
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    padding: 18px;
+    border-radius: 9px;
+    text-align: center;
+    max-height: 85vh;
+    height: 400px;
+    animation: grow .35s;
+}
+
+.backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    background: rgba(0,0,0,.32);
+    animation: fade .35s;
+}
+
+@keyframes grow {
+    from {transform: scale(.1);}
+    to {transform: scale(1);}
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to{opacity: 1;}
+}
+
+.header {
+    padding-bottom: 2vh;
+    text-align: left;
+    font-size: 150%;
+}
+
+.option {
+    font-size: 125%;
+    background: #e9e9e9;
+    padding: 9px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 0px 0px #5f004a;
+
+    &.close {
+        bottom: 0;
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        box-shadow: none;
+    }
+}

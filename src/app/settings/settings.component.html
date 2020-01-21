@@ -1,0 +1,6 @@
+<div (click)="open()" class="settings">
+    <i class="material-icons icon">settings</i>
+</div>
+<div *ngIf="opened">
+    <app-menu (closeEvent)="close()"></app-menu>
+</div>

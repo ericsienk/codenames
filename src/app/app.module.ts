@@ -12,6 +12,8 @@ import { ActionBarComponent } from './action-bar/action-bar.component';
 import { MenuComponent } from './menu/menu.component';
 import { AnswersComponent } from './answers/answers.component';
 import { GameComponent } from './game/game.component';
+import { SettingsComponent } from './settings/settings.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { GameComponent } from './game/game.component';
     ActionBarComponent,
     MenuComponent,
     AnswersComponent,
-    GameComponent
+    GameComponent,
+    SettingsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
