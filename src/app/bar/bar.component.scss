@@ -1,0 +1,28 @@
+@keyframes slideUp {
+    from { transform: translateY(15vh)}
+    to { transform: translateY(0)}
+}
+
+.action-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 3;
+    animation: .35s slideUp
+}
+
+.bar-container {
+    height: 15vh;
+    width: 100%;
+    text-align: center;
+}
+
+.type-selector {
+    height: 13vh;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+}

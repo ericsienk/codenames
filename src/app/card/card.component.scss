@@ -4,7 +4,6 @@
     font-size: 1.7vw;
     position: relative;
     margin: auto;
-    //border-radius: 3px;
     min-height: 12vh;
     height: 100%;
     max-height: 20vw;
@@ -216,5 +215,10 @@
   
       .cover img {
           box-shadow: none;
+      }
+
+      .wrapper {
+        font-size: 1rem;
+        min-height: 4vh;
       }
   }

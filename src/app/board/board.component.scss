@@ -12,13 +12,8 @@
 
 .board {
     padding: 9px;
-    height: 70vh;
+    // height: 70vh;
+    max-height: 70vh;
     display: flex;
     flex-flow: row wrap;
-}
-
-@media screen and (max-height: 400px) {
-    .card-row {
-        margin-bottom: 0;
-    }    
 }

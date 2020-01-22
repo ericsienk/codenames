@@ -6,3 +6,19 @@ body {
     background: #3e313b; // #87766b;
     background: radial-gradient(circle, rgba(253,104,18,1) 10%, rgba(62,49,59,1) 69%);
 }
+
+.prim-btn {
+    padding: 0 9px;
+    font-size: 4vh;
+    margin: 0 9px;
+    border-radius: 22px;
+    background: #3e313b;
+    color: white;
+    border: 3px solid #3e313b;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.prim-btn:active, .prim-btn:focus {
+    outline: none;
+    border: none;
+}
