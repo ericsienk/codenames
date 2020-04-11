@@ -51,3 +51,12 @@
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
     -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
+
+.types {
+    position: fixed;
+    transition: top .35s;
+}
+
+.types.prompt {
+    top: calc(50% - 14vh);
+}

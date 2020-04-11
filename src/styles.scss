@@ -5,6 +5,15 @@ body {
     font-size: 1.5em;
     background: #3e313b; // #87766b;
     background: radial-gradient(circle, rgba(253,104,18,1) 10%, rgba(62,49,59,1) 69%);
+    transition: background .35s;
+}
+
+body.Red { 
+    background: radial-gradient(circle, #c71005 10%, rgba(62,49,59,1) 69%);
+}
+
+body.Blue { 
+    background: radial-gradient(circle, #0d6b9c 10%, rgba(62,49,59,1) 69%);
 }
 
 .prim-btn {
@@ -22,3 +31,11 @@ body {
     outline: none;
     border: none;
 }
+
+.no-select {
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  }

@@ -45,15 +45,42 @@
     font-size: 1.5rem;
 }
 
-.option {
+.option-row {
+    display: flex;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+.subhead {
+    width: 100%;
     font-size: 1.3rem;
+    padding: 9px;
+}
+
+.option {
+    width: 100%;
+    font-size: 1.3rem;
+    border-radius: 1.3rem;
     background: #e9e9e9;
     padding: 9px;
+    margin: 9px;
     margin-bottom: 18px;
     cursor: pointer;
     box-shadow: 0 5px 0px 0px #5f004a;
 
+    &.Red { 
+        background:  #c71005;
+        color: white;
+    }
+    
+    &.Blue { 
+        background:  #0d6b9c;
+        color: white;
+    }
+    
+
     &.close {
+        width: initial;
         bottom: 0;
         position: absolute;
         left: 10%;

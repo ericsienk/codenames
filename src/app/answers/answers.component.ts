@@ -17,6 +17,7 @@ export class AnswersComponent implements OnInit {
             this.grid = grid;
             this.grid.cards.forEach(x => x.forEach(x => this.grid.reveal(x)));
             subscribe.unsubscribe();
+            this.gridService.setBackground(grid);
         });
   }
 }

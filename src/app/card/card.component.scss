@@ -2,6 +2,7 @@
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     background: white;
     font-size: 1.7vw;
+    font-size: calc(5px + (26 - 5) * ((100vw - 300px) / (1600 - 300)));
     position: relative;
     margin: auto;
     min-height: 12vh;

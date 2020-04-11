@@ -27,6 +27,7 @@ export class GameComponent implements OnInit, OnDestroy {
         this.gridSubscriber = this.gridService.getCardGrid().subscribe((grid) => {
             this.grid = grid;
             this.actionStack = new ActionStack();
+            this.gridService.setBackground(grid);
         });
 
         this.options = {

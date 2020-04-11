@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { CardType } from '../domain/card-type.enum';
+import { GridService } from '../services/grid.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,21 +11,30 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
     @Output()
     public closeEvent = new EventEmitter();
-  constructor(private router: Router) { }
+  constructor(private router: Router, private gridService: GridService) { }
 
   ngOnInit() {
   }
 
-    newGameBoard() {
+    newGameBoard(type: CardType) {
+        this.gridService.rigNextPlayerThatGoesFirst(type);
         this.closeEvent.emit();
         this.router.navigateByUrl('/reload', { skipLocationChange: true }).then(() => {
             this.router.navigate(['/game']);
         }); 
     }
 
-    newAnswerBoard() {
+    newGameBoardBlue() { this.newGameBoard(CardType.BLUE_AGENT); }
+    newGameBoardRed() { this.newGameBoard(CardType.RED_AGENT); }
+
+    newAnswerBoard(type: CardType) {
+        this.gridService.rigNextPlayerThatGoesFirst(type);
         this.closeEvent.emit();
-        this.router.navigate(['/answers'])
+        this.router.navigateByUrl('/reload', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/answers']);
+        }); 
     }
  
+    newAnswerBoardBlue() { this.newAnswerBoard(CardType.BLUE_AGENT); }
+    newAnswerBoardRed() { this.newAnswerBoard(CardType.RED_AGENT); }
 }

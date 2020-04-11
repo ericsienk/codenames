@@ -3,8 +3,16 @@
         Settings
     </div>
     <div class="options">
-        <div class="option" (click)="newGameBoard()">Game Board</div>
-        <div class="option" (click)="newAnswerBoard()">Answer Board</div>
+        <div class="option-row">
+            <div class="option Red" (click)="newGameBoardRed()">&nbsp;</div>
+            <div class="subhead">← Words →</div>
+            <div class="option Blue" (click)="newGameBoardBlue()"></div>
+        </div>
+        <div class="option-row">
+            <div class="option Red" (click)="newAnswerBoardRed()">&nbsp;</div>
+            <div class="subhead">← Codes →</div>
+            <div class="option Blue" (click)="newAnswerBoardBlue()"></div>
+        </div>
     </div>
     <div class="option close" (click)="closeEvent.emit()">Close</div>
 </div>

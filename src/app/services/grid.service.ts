@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, Renderer2, RendererFactory2 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { CardGrid } from '../domain/card-grid';
 import { CardGridBuilder } from '../domain/card-grid-builder';
 import { CardType } from '../domain/card-type.enum';
@@ -12,11 +13,23 @@ import { RandoUtilService } from './rando-util.service';
   providedIn: 'root'
 })
 export class GridService {
+    private renderer: Renderer2;
+    private nextGoesFirst: CardType | undefined;
 
-    constructor(private http: HttpClient, private rando: RandoUtilService) { }
+    constructor(private http: HttpClient,
+        @Inject(DOCUMENT) private document: Document,
+        rendererFactory: RendererFactory2,
+        private rando: RandoUtilService) {
+            this.renderer = rendererFactory.createRenderer(null, null);
+    }
+    
+    rigNextPlayerThatGoesFirst(player: CardType) {
+        this.nextGoesFirst = player;
+    }
 
     getCardGrid(): Observable<CardGrid> {
-        const goesFirst = this.rando.oneSample(PLAYERS);
+        const goesFirst = this.nextGoesFirst || this.rando.oneSample(PLAYERS);
+        this.nextGoesFirst = undefined;
         const typeMap = new Map<CardType, number>();
         typeMap.set(CardType.BLUE_AGENT, 8);
         typeMap.set(CardType.RED_AGENT, 8);
@@ -33,6 +46,17 @@ export class GridService {
                 return new CardGridBuilder(5, 5).words(words).build(typeMap, goesFirst);
             })
         );
+    }
+
+    setBackground(grid: CardGrid) {
+        this.renderer.removeClass(this.document.body, CardType.RED_AGENT);
+        this.renderer.removeClass(this.document.body, CardType.BLUE_AGENT);
+
+        if (grid.goesFirst === CardType.RED_AGENT) {
+            this.renderer.addClass(this.document.body, CardType.RED_AGENT);
+        } else if (grid.goesFirst === CardType.BLUE_AGENT) {
+            this.renderer.addClass(this.document.body, CardType.BLUE_AGENT);
+        }
     }
 
     rotate(grid: CardGrid) {
